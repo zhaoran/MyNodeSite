@@ -111,10 +111,10 @@ var handleAction = function(res, params){
 	var lastSlashIndex = pathname.lastIndexOf('/');
 	var actionPath = pathname.substring(0, lastSlashIndex);
 	var methodName = pathname.substring(lastSlashIndex + 1).replace('.action', '');
-	var fn = require(path.join(actionBasePath, actionPath))[methodName];
+	var actionFn = require(path.join(actionBasePath, actionPath))[methodName];
 //	console.log('exports = ' + util.inspect(exports, true));
-	if(typeof fn == 'function'){
-		fn(params, function(data){
+	if(typeof actionFn == 'function'){
+		actionFn(params, function(data){
 			var args = {
 				'header' : {
 					'Content-Type' : CONTENT_TYPE_MAP['.json'] || 'text/html'

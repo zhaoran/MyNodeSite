@@ -3,5 +3,6 @@
  */
 NODE_DEBUG && build.importTpl([
 	'site/home/index.html',
-	'site/chart/google.html'	
-], NODE_ROOT);
+	'site/chart/google.html',
+	'site/chart/highcharts.html'	
+], NODE_SRC_ROOT);

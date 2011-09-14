@@ -4,4 +4,4 @@
 NODE_DEBUG && build.importCss([
 	'css/chart.css'
 	
-], NODE_ROOT);
+], NODE_SRC_ROOT);

@@ -4,6 +4,8 @@
 var NODE_DEBUG = true;
 var NODE_TPL_LIST = [];
 var NODE_ROOT = '/';
+var NODE_DEBUG_ROOT = '/debug/';
+var NODE_SRC_ROOT = '/src/';
 
 var build = build || {
 	importTpl : function(path, root){
@@ -30,7 +32,7 @@ var build = build || {
 	}
 };
 if(NODE_DEBUG){
-	build.importJs(['debug/debug_tpl.js'], NODE_ROOT);
-	build.importJs(['debug/debug_js.js'], NODE_ROOT);
-//	build.importJs(['debug/debug_css.js'], NODE_ROOT);
+	build.importJs(['debug_tpl.js'], NODE_DEBUG_ROOT);
+	build.importJs(['debug_js.js'], NODE_DEBUG_ROOT);
+//	build.importJs(['debug_css.js'], NODE_DEBUG_ROOT);
 }

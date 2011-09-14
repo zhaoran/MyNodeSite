@@ -1,21 +1,22 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html >
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>My Node Site</title>
-		<link rel="stylesheet" href="./css/chart.css">
+		<link rel="stylesheet" href="./src/css/chart.css">
     </head>
     <body>
         <h1>My Node Page1</h1>
 		<div id="MainBody">
 			
 		</div>
-		<script type="text/javascript"
-			src="https://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="debug/er_debug.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi" ></script>
+		<script type="text/javascript" src="./debug/er_debug.js"></script>
+<!--		<script type="text/javascript" src="./asset/mynodesite.pack.js"></script>-->
 		<script type="text/javascript">
 			google.load('visualization', '1.0', {packages: ['charteditor']});
 			google.setOnLoadCallback(er.init());
+//			er.init();
 		</script>
     </body>
 </html>

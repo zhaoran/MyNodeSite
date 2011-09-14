@@ -3,6 +3,8 @@
  */
 NODE_DEBUG && build.importJs([
 	'lib/tangram-1.3.9/tangram-1.3.9.js',
+	'lib/jquery/jquery-1.4.2.js',
+	'lib/highcharts-2.1.6/highcharts.src.js',
 	'lib/er-1.2.0/er.js',
 	
 	'lib/er-1.2.0/extends/UIAction.js',
@@ -22,6 +24,7 @@ NODE_DEBUG && build.importJs([
 	
 	'site/chart/chart.js',
 	'site/chart/config.js',
-	'site/chart/google.js'
+	'site/chart/google.js',
+	'site/chart/highcharts.js'
 	
-], NODE_ROOT);
+], NODE_SRC_ROOT);
