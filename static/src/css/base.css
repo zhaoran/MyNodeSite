@@ -1,0 +1,90 @@
+/*
+ * base.css
+ * Copyright 2011 Baidu Inc. All rights reserved.
+ * 
+ * path:    base.css
+ * desc:    基础样式定义
+ * author:  acelan(lanxiaobin@baidu.com)
+ * date:   2011/01/11
+ */
+
+/**
+ * ie6下最小宽度980px
+ */
+.ie6-out{_margin-left:980px;_zoom:1;}
+.ie6-in{_position:relative;_float:left;_margin-left:-980px;}
+.min-width-wrap{min-width:980px;_zoom:1;}
+
+/**
+ * reset部分
+ */
+body, div, p, dl, dt, dd, ul, ol, li, hr, pre, fieldset, legend,
+input, button, textarea, form, img, h1, h2, h3, h4, h5, h6 {
+    margin:0;
+    padding:0;
+}
+
+h3{
+	font-size:14px;
+}
+h4{
+	font-size:12px;
+}
+
+fieldset, iframe, img {
+    border: 0;
+}
+
+table{
+	table-layout:fixed;
+}
+
+a img {
+    display:block;
+}
+
+li {list-style: none;}
+
+
+/**
+ * base部分
+ * 
+ */
+html {
+    background: #fff;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+	overflow-y:scroll;
+}
+
+a {
+    text-decoration: none;
+    cursor:pointer;
+}
+a:visited{
+	color:#03c;
+}
+a:hover {
+	text-decoration:underline;
+}
+
+/* 用于需要隐藏的元素 */
+.hide {
+    display:none;
+}
+
+/* 用于需要显示的元素 */
+.show {
+    display:block;
+}
+
+/* 相对定位*/
+.prelative {
+	position:relative;
+}
+
+
+/*清除浮动*/
+.clearfix{*zoom:1;}
+.clearfix:after{content:'\20';display:block;height:0;clear:both;}
