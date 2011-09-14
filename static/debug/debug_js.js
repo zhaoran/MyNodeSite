@@ -2,7 +2,7 @@
  * @author zhaoran02
  */
 NODE_DEBUG && build.importJs([
-	'lib/tangram-1.3.9/tangram-1.3.9.js',
+	'lib/tangram-1.3.9/tangram-1.3.9.source.js',
 	'lib/jquery/jquery-1.4.2.js',
 	'lib/highcharts-2.1.6/highcharts.src.js',
 	'lib/er-1.2.0/er.js',
@@ -15,7 +15,11 @@ NODE_DEBUG && build.importJs([
 	'lib/er-1.2.0/esui/Link.js',
 //	"lib/er-1.2.0/esui/BaseBox.js",
 	"lib/er-1.2.0/esui/BaseInput.js",
+	"lib/er-1.2.0/esui/Layer.js",
+	"lib/er-1.2.0/esui/TextInput.js",
+	"lib/er-1.2.0/esui/TextLine.js",
 	'lib/er-1.2.0/esui/Button.js',
+	'lib/er-1.2.0/esui/Table.js',
 	
 	'site/global/config.js',
 	
@@ -25,6 +29,8 @@ NODE_DEBUG && build.importJs([
 	'site/chart/chart.js',
 	'site/chart/config.js',
 	'site/chart/google.js',
-	'site/chart/highcharts.js'
+	'site/chart/highcharts.js',
+	'site/chart/openflashchart.js',
+	'site/chart/number.js'
 	
 ], NODE_SRC_ROOT);

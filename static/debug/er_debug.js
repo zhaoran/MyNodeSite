@@ -34,5 +34,5 @@ var build = build || {
 if(NODE_DEBUG){
 	build.importJs(['debug_tpl.js'], NODE_DEBUG_ROOT);
 	build.importJs(['debug_js.js'], NODE_DEBUG_ROOT);
-//	build.importJs(['debug_css.js'], NODE_DEBUG_ROOT);
+	build.importJs(['debug_css.js'], NODE_DEBUG_ROOT);
 }

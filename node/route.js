@@ -15,9 +15,8 @@ var uploadBasePath = config.uploadBasePath;
 var CONTENT_TYPE_MAP = config.CONTENT_TYPE_MAP;
 var ROUTE_MAP = config.ROUTE_MAP;
 
-var routeCount = 0;
+var reqCount = 0;
 var doRouting = function(req, res, postData){
-	console.log('routeCount=' + (++routeCount));
 	var urlObj = url.parse(req.url, true);
 	var args = {};
 	var pathname = urlObj.pathname;
@@ -27,7 +26,7 @@ var doRouting = function(req, res, postData){
 		extIndex = pathname.lastIndexOf('.');
 	}
 	var ext = pathname.substring(extIndex);
-	DEBUG_MODE && console.log('pathname = ' + pathname);
+	DEBUG_MODE && console.log('reqCount=' + (++reqCount) + ';pathname = ' + pathname);
 	switch(true){
 		case pathname.match(ROUTE_MAP.download) instanceof Array:
 			args = {
@@ -62,14 +61,14 @@ var doRouting = function(req, res, postData){
 var handleDownload = function(res, params){
 	var filename = params.get.filename;
 	if(!filename){
-		resHandler.handle404(res, '请指定文件名' + fullFilename);
+		resHandler.handle404(res, '请指定文件名;' + filename);
 		return;
 	}
 	var fullFilename = path.join(uploadBasePath, filename);
-	DEBUG_MODE && console.log('filename = ' + fullFilename);
+	DEBUG_MODE && console.log('downloadfilename=' + fullFilename);
 	var matchArray = filename.match(config.DOWNLOAD_MATCH);
 	if(!matchArray){
-		resHandler.handle404(res, '不允许下载此类文件' + fullFilename);
+		resHandler.handle404(res, '不允许下载此类文件;' + fullFilename);
 		return;
 	}
 	var ext = matchArray[0];
@@ -84,7 +83,8 @@ var handleDownload = function(res, params){
 				'Content-Disposition' : 'attachment;filename=' + filename
 			},
 			'body' : data,
-			'format' : 'binary'
+			'format' : 'binary',
+			'pathname' : filename
 		};
 		resHandler.handle200(res, args);
 	});
@@ -101,7 +101,8 @@ var handleStatic = function(res, params){
 				'Content-Type' : CONTENT_TYPE_MAP[params.ext] || 'text/html'
 			},
 			'body' : data,
-			'format' : 'binary'
+			'format' : 'binary',
+			'pathname' : params.pathname
 		};
 		resHandler.handle200(res, args);
 	});
@@ -120,7 +121,8 @@ var handleAction = function(res, params){
 					'Content-Type' : CONTENT_TYPE_MAP['.json'] || 'text/html'
 				},
 				'body' : data,
-				'format' : 'utf-8'
+				'format' : 'utf-8',
+				'pathname' : pathname
 			};
 			resHandler.handle200(res, args);
 		});
@@ -131,20 +133,20 @@ var handleAction = function(res, params){
 };
 var resHandler = (function(){
 	var resCount = 0;
-	var onResEnd = function(){
-		DEBUG_MODE && console.log('resCount = ' + (++resCount));
+	var onResEnd = function(pathname){
+		DEBUG_MODE && console.log('resCount=' + (++resCount) + ';pathname = ' + pathname);
 	};
 	return {
 		handle404 : function(res, msg){
 			res.writeHead(404, {"Content-Type": "text/plain"});
 			res.write("404 Not Found\n");
-			onResEnd();
+			onResEnd(msg);
 			res.end(msg);
 		},
 		handle200 : function(res, params){
 			res.writeHead(200, params.header);
 			res.write(params.body, params.format);
-			onResEnd();
+			onResEnd(params.pathname);
 			res.end();
 		}
 	};

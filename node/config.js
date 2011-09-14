@@ -20,12 +20,13 @@ var CONTENT_TYPE_MAP = {
 		'.png' : 'image/x-png',
 		'.ico' : 'image/x-icon',
 		'.zip' : 'application/zip',
-		'.exe' : 'application/octet-stream'
+		'.exe' : 'application/octet-stream',
+		'.swf' : 'application/x-shockwave-flash'
 };
 var ROUTE_MAP = {
 	'download' : /downloadFile.action/,
 	'action' : /.action/,
-	'static' : /.html|.css|.js|.ico|.gif/
+	'static' : /.html|.css|.js|.ico|.gif|.swf|.json/
 };
 var DOWNLOAD_MATCH = /(.txt|.zip|.exe)$/g;
 var DEBUG_MODE = true;

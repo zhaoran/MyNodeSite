@@ -11,6 +11,14 @@ var chart = new er.Module({
 	          {
 				path : '/chart/highcharts',
 				action : 'chart.highcharts'
+	          },
+	          {
+	          	path : '/chart/openflashchart',
+	          	action : 'chart.openflashchart'
+	          },
+	          {
+	          	path : '/chart/number',
+	          	action : 'chart.number'
 	          }
 		]
 	}
