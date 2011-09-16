@@ -28,6 +28,7 @@ NODE_DEBUG && build.importJs([
 	
 	'site/chart/chart.js',
 	'site/chart/config.js',
+	'site/chart/index.js',
 	'site/chart/google.js',
 	'site/chart/highcharts.js',
 	'site/chart/openflashchart.js',

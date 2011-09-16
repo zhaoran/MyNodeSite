@@ -7,7 +7,14 @@ chart.google = new er.Action({
 	CONTEXT_INITER_MAP : {},
 	onafterrender : function(){
 		var me = this;
-		ui.get('editChartBtn').onclick = me.editChart();
+//		ui.get('editChartBtn').onclick = me.editChart();
+	},
+	onentercomplete : function(){
+		var me = this;
+		var canvas = baidu.g('canvasSample');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = "rgb(0,0,255)";
+		ctx.fillRect(10,20,100,50);
 	},
 	editChart : function(){
 		var me = this;
