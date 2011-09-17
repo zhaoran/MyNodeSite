@@ -22,7 +22,7 @@
  * @name T
  * @version 1.3.9
 */
-"use strict";
+//"use strict";
 /**
  * 声明baidu包
  * @author: allstar, erik, meizz, berg
