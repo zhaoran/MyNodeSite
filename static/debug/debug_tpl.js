@@ -3,6 +3,7 @@
  */
 NODE_DEBUG && build.importTpl([
 	'site/home/index.html',
+	'site/chart/index.html',
 	'site/chart/google.html',
 	'site/chart/highcharts.html',
 	'site/chart/openflashchart.html',
